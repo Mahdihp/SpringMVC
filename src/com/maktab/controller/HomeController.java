@@ -30,15 +30,20 @@ public class HomeController {
         return "index";
     }
 
-    @RequestMapping(path = "/show-person")
-    public String showForm(Model model) {
-
-        model.addAttribute("person",new Person());
-        return "show-person";
+    @RequestMapping(path = "/list")
+    public String list(Model model) {
+        model.addAttribute("persons",personService.readAll());
+        return "list";
     }
 
-    @RequestMapping(path = "/")
-    public ModelAndView homeMethod() {
-        return new ModelAndView("index");
+
+    @RequestMapping(path = "/index")
+    public String homeMethod() {
+        return "index";
+    }
+    @RequestMapping(path = "/show-form")
+    public String showForm(Model model) {
+        model.addAttribute("persons",new Person());
+        return "add-person";
     }
 }
