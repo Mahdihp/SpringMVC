@@ -12,5 +12,7 @@
     </bean>
 
     <contex:component-scan base-package="com.maktab.controller"/>
+    <contex:component-scan base-package="com.maktab.service"/>
+    <contex:component-scan base-package="com.maktab.dao"/>
 
 </beans>
