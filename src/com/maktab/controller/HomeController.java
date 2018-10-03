@@ -23,16 +23,18 @@ public class HomeController {
 
     @RequestMapping(path = "/add-person")
 //    public String addPerson(@ModelAttribute Person(name ="person" person) {
-    public String addPerson(@ModelAttribute Person person) {
-        person.setId(1L);
+    public String addPerson(@ModelAttribute Person person, Model model) {
         System.out.println(person);
        personService.save(person);
-        return "index";
+
+        model.addAttribute("person",personService.readAll());
+        return "list";
     }
 
     @RequestMapping(path = "/list")
     public String list(Model model) {
-        model.addAttribute("persons",personService.readAll());
+        System.out.println(personService.readAll());
+        model.addAttribute("person",personService.readAll());
         return "list";
     }
 
@@ -43,7 +45,7 @@ public class HomeController {
     }
     @RequestMapping(path = "/show-form")
     public String showForm(Model model) {
-        model.addAttribute("persons",new Person());
+        model.addAttribute("person",new Person());
         return "add-person";
     }
 }

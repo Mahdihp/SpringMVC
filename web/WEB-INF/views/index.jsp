@@ -12,7 +12,5 @@
   </head>
   <body>
 
-  ${persons}
-
   </body>
 </html>

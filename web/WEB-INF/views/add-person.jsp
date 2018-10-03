@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<form:form modelAttribute="persons" method="post" action="/app/persons/add-person">
+<form:form modelAttribute="person" method="post" action="/app/persons/add-person">
 
     <form:input path="fullName"/>
     <input type="submit"/>
